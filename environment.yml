@@ -1,0 +1,256 @@
+name: LUL
+channels:
+- kidzik
+- conda-forge
+- defaults
+dependencies:
+- bleach=1.5.0=py36_0
+- ca-certificates=2017.7.27.1=0
+- certifi=2017.7.27.1=py36_0
+- curl=7.54.1=0
+- decorator=4.1.2=py36_0
+- entrypoints=0.2.3=py36_1
+- expat=2.2.1=0
+- git=2.13.3=0
+- gmp=6.1.2=0
+- h5py=2.7.0=np113py36_1
+- hdf5=1.8.18=0
+- html5lib=0.9999999=py36_0
+- ipykernel=4.6.1=py36_0
+- ipython=6.1.0=py36_0
+- ipython_genutils=0.2.0=py36_0
+- jedi=0.10.2=py36_0
+- jinja2=2.9.5=py36_0
+- jsonschema=2.5.1=py36_0
+- jupyter_client=5.1.0=py36_0
+- jupyter_core=4.3.0=py36_0
+- keras=2.0.6=py36_0
+- krb5=1.14.2=0
+- lapack=3.6.1=1
+- libgpuarray=0.6.9=0
+- libiconv=1.14=4
+- libsodium=1.0.10=0
+- libssh2=1.8.0=1
+- mako=1.0.7=py36_0
+- markupsafe=1.0=py36_0
+- mistune=0.7.4=py36_0
+- nb_conda=2.2.1=py36_0
+- nb_conda_kernels=2.1.0=py36_0
+- nbconvert=5.2.1=py36_1
+- nbformat=4.3.0=py36_0
+- ncurses=5.9=10
+- notebook=5.0.0=py36_0
+- openssl=1.0.2l=0
+- pandoc=1.19.2=0
+- pandocfilters=1.4.1=py36_0
+- pexpect=4.2.1=py36_0
+- pickleshare=0.7.3=py36_0
+- pip=9.0.1=py36_0
+- prompt_toolkit=1.0.14=py36_0
+- ptyprocess=0.5.2=py36_0
+- pygments=2.2.0=py36_0
+- pygpu=0.6.9=np113py36_0
+- python=3.6.2=0
+- python-dateutil=2.6.1=py36_0
+- pyyaml=3.12=py36_1
+- pyzmq=16.0.2=py36_2
+- readline=6.2=0
+- setuptools=36.2.2=py36_0
+- simplegeneric=0.8.1=py36_0
+- six=1.10.0=py36_1
+- sqlite=3.13.0=1
+- terminado=0.6=py36_0
+- testpath=0.3=py36_0
+- theano=0.9.0=py36_1
+- tk=8.5.19=2
+- tornado=4.5.1=py36_0
+- traitlets=4.3.2=py36_0
+- wcwidth=0.1.7=py36_0
+- webencodings=0.5=py36_0
+- wheel=0.29.0=py36_0
+- xz=5.2.2=0
+- yaml=0.1.6=0
+- zeromq=4.2.1=1
+- zlib=1.2.11=0
+- libgfortran=3.0.0=1
+- mkl=2017.0.3=0
+- numpy=1.13.1=py36_0
+- scipy=0.19.1=np113py36_0
+- freeglut=3.0.0=4
+- openblas=0.2.19=0
+- opensim=4.0.0=15
+- pip:
+  - actionlib==1.11.9
+  - angles==1.9.11
+  - azure==1.0.3
+  - azure-common==1.1.8
+  - azure-mgmt==0.20.2
+  - azure-mgmt-common==0.20.0
+  - azure-mgmt-compute==0.20.1
+  - azure-mgmt-network==0.20.1
+  - azure-mgmt-nspkg==2.0.0
+  - azure-mgmt-resource==0.20.1
+  - azure-mgmt-storage==0.20.0
+  - azure-nspkg==2.0.0
+  - azure-servicebus==0.20.1
+  - azure-servicemanagement-legacy==0.20.2
+  - azure-storage==0.20.3
+  - backports.weakref==1.0rc1
+  - base-local-planner==1.14.0
+  - baselines==0.1.4
+  - bondpy==1.7.19
+  - camera-calibration==1.12.20
+  - camera-calibration-parsers==1.11.12
+  - capabilities==0.2.0
+  - catkin==0.7.6
+  - chardet==3.0.4
+  - controller-manager==0.11.5
+  - controller-manager-msgs==0.11.5
+  - create-dashboard==2.3.1
+  - create-driver==2.3.1
+  - create-node==2.3.1
+  - cv-bridge==1.12.4
+  - cython==0.26
+  - diagnostic-analysis==1.9.0
+  - diagnostic-common-diagnostics==1.9.0
+  - diagnostic-updater==1.9.0
+  - dill==0.2.7.1
+  - dynamic-reconfigure==1.5.48
+  - gazebo-plugins==2.5.13
+  - gazebo-ros==2.5.13
+  - gencpp==0.5.5
+  - geneus==2.2.6
+  - genlisp==0.4.16
+  - genmsg==0.5.8
+  - gennodejs==2.0.1
+  - genpy==0.6.5
+  - geodesy==0.5.2
+  - glfw==1.4.0
+  - gym==0.9.2
+  - idna==2.5
+  - image-geometry==1.12.4
+  - imageio==2.2.0
+  - interactive-markers==1.11.3
+  - ipython-genutils==0.2.0
+  - joblib==0.11
+  - jupyter-client==5.1.0
+  - jupyter-core==4.3.0
+  - keras-rl==0.3.0
+  - kobuki-dashboard==0.5.7
+  - laser-geometry==1.6.4
+  - markdown==2.6.8
+  - message-filters==1.12.7
+  - mpi4py==2.0.0
+  - nb-conda==2.2.1
+  - nb-conda-kernels==2.1.0
+  - olefile==0.44
+  - osim-rl==1.4.1
+  - pillow==4.2.1
+  - pluginlib==1.10.5
+  - progressbar2==3.33.2
+  - prompt-toolkit==1.0.14
+  - protobuf==3.3.0
+  - pyglet==1.2.4
+  - python-qt-binding==0.3.2
+  - python-utils==2.2.0
+  - qt-dotgraph==0.3.4
+  - qt-gui==0.3.4
+  - qt-gui-cpp==0.3.4
+  - qt-gui-py-common==0.3.4
+  - requests==2.18.2
+  - resource-retriever==1.12.3
+  - rocon-app-manager==0.9.1
+  - rocon-app-utilities==0.9.1
+  - rocon-apps==0.9.1
+  - rocon-console==0.3.2
+  - rocon-ebnf==0.3.2
+  - rocon-gateway==0.8.1
+  - rocon-gateway-utils==0.8.1
+  - rocon-hub==0.8.1
+  - rocon-hub-client==0.8.1
+  - rocon-interactions==0.3.2
+  - rocon-master-info==0.3.2
+  - rocon-python-comms==0.3.2
+  - rocon-python-redis==0.3.2
+  - rocon-python-utils==0.3.2
+  - rocon-python-wifi==0.3.2
+  - rocon-semantic-version==0.3.2
+  - rocon-uri==0.3.2
+  - rosbag==1.12.7
+  - rosboost-cfg==1.13.5
+  - rosclean==1.13.5
+  - roscreate==1.13.5
+  - rosgraph==1.12.7
+  - roslaunch==1.12.7
+  - roslib==1.13.5
+  - roslint==0.11.0
+  - roslz4==1.12.7
+  - rosmake==1.13.5
+  - rosmaster==1.12.7
+  - rosmsg==1.12.7
+  - rosnode==1.12.7
+  - rosparam==1.12.7
+  - rospy==1.12.7
+  - rospy-message-converter==0.4.0
+  - rosservice==1.12.7
+  - rostest==1.12.7
+  - rostopic==1.12.7
+  - rosunit==1.13.5
+  - roswtf==1.12.7
+  - rqt-action==0.4.9
+  - rqt-bag==0.4.8
+  - rqt-bag-plugins==0.4.8
+  - rqt-console==0.4.8
+  - rqt-dep==0.4.8
+  - rqt-graph==0.4.8
+  - rqt-gui==0.5.0
+  - rqt-gui-py==0.5.0
+  - rqt-image-view==0.4.8
+  - rqt-launch==0.4.8
+  - rqt-logger-level==0.4.8
+  - rqt-moveit==0.5.7
+  - rqt-msg==0.4.8
+  - rqt-nav-view==0.5.7
+  - rqt-plot==0.4.8
+  - rqt-pose-view==0.5.7
+  - rqt-publisher==0.4.8
+  - rqt-py-common==0.5.0
+  - rqt-py-console==0.4.8
+  - rqt-reconfigure==0.4.8
+  - rqt-robot-dashboard==0.5.7
+  - rqt-robot-monitor==0.5.7
+  - rqt-robot-steering==0.5.7
+  - rqt-runtime-monitor==0.5.7
+  - rqt-rviz==0.5.7
+  - rqt-service-caller==0.4.8
+  - rqt-shell==0.4.8
+  - rqt-srv==0.4.8
+  - rqt-tf-tree==0.5.7
+  - rqt-top==0.4.8
+  - rqt-topic==0.4.8
+  - rqt-web==0.4.8
+  - rviz==1.12.10
+  - sensor-msgs==1.12.5
+  - smach==2.0.1
+  - smach-ros==2.0.1
+  - smclib==1.7.19
+  - tensorflow==1.2.1
+  - tensorflow-gpu==1.2.1
+  - tf==1.11.8
+  - tf-conversions==1.11.8
+  - tf2-geometry-msgs==0.5.15
+  - tf2-kdl==0.5.15
+  - tf2-py==0.5.15
+  - tf2-ros==0.5.15
+  - tf2-sensor-msgs==0.5.15
+  - topic-tools==1.12.7
+  - tqdm==4.15.0
+  - unique-id==1.0.5
+  - urllib3==1.22
+  - werkzeug==0.12.2
+  - world-canvas-server==0.2.0
+  - world-canvas-utils==0.2.0
+  - xacro==1.11.2
+  - zmq==0.0.0
+prefix: /home/daniel/anaconda3/envs/LUL
+
