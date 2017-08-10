@@ -38,15 +38,16 @@ def run(seed, noise_type, num_cpu, layer_norm, logdir, gym_monitor, evaluation, 
     rank = MPI.COMM_WORLD.Get_rank()
     if rank != 0:
         # Write to temp directory for all non-master workers.
+        print("Entrei Aqui")
         actual_dir = None
         Logger.CURRENT.close()
         Logger.CURRENT = Logger(dir=mkdtemp(), output_formats=[])
         logger.set_level(logger.DISABLED)
     
+    print("LUL")
     
     
-    
-    env = RunEnv(True)
+    env = RunEnv(False)
     env.reset()
        
     
