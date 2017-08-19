@@ -34,25 +34,28 @@ def run(seed, noise_type, num_cpu, layer_norm, logdir, gym_monitor, evaluation, 
     if whoami == 'parent':
         sys.exit(0)
 
+    
+
+
     # Configure things.
     rank = MPI.COMM_WORLD.Get_rank()
     if rank != 0:
         # Write to temp directory for all non-master workers.
         print("Entrei Aqui")
+
         actual_dir = None
         Logger.CURRENT.close()
         Logger.CURRENT = Logger(dir=mkdtemp(), output_formats=[])
         logger.set_level(logger.DISABLED)
     
     print("LUL")
-    
-    
-    env = RunEnv(False)
-    env.reset()
        
     
     # Create envs.
-    #if rank == 0:
+    if rank == 0:
+
+        env = RunEnv(False)
+    #env.reset() 
     #    env = gym.make(env_id)
     #    if gym_monitor and logdir:
     #        env = gym.wrappers.Monitor(env, os.path.join(logdir, 'gym_train'), force=True)
@@ -65,7 +68,9 @@ def run(seed, noise_type, num_cpu, layer_norm, logdir, gym_monitor, evaluation, 
     #        eval_env = SimpleMonitor(eval_env)
     #    else:
     #        eval_env = None
-    #else:
+    else:
+        env = RunEnv(False)
+    #env.reset()
     #    env = gym.make(env_id)
     #    if evaluation:
     #        eval_env = gym.make(env_id)
@@ -98,11 +103,11 @@ def run(seed, noise_type, num_cpu, layer_norm, logdir, gym_monitor, evaluation, 
     actor = Actor(nb_actions, layer_norm=layer_norm)
 
     # Seed everything to make things reproducible.
-    #seed = seed + 1000000 * rank
-    #logger.info('rank {}: seed={}, logdir={}'.format(rank, seed, logger.get_dir()))
-    #tf.reset_default_graph()
-    #set_global_seeds(seed)
-    #env.seed(seed)
+    seed = seed + 1000000 * rank
+    logger.info('rank {}: seed={}, logdir={}'.format(rank, seed, logger.get_dir()))
+    tf.reset_default_graph()
+    set_global_seeds(seed)
+    env.seed(seed)
     #if eval_env is not None:
     #    eval_env.seed(seed)
 
@@ -112,8 +117,8 @@ def run(seed, noise_type, num_cpu, layer_norm, logdir, gym_monitor, evaluation, 
     training.train(env=env, eval_env=None, param_noise=param_noise,
         action_noise=action_noise, actor=actor, critic=critic, memory=memory, **kwargs)
     env.close()
-    if eval_env is not None:
-        eval_env.close()
+    #if eval_env is not None:
+    #    eval_env.close()
     Logger.CURRENT.close()
     if rank == 0:
         logger.info('total runtime: {}s'.format(time.time() - start_time))
@@ -136,7 +141,7 @@ def parse_args():
     boolean_flag(parser, 'render-eval', default=False)
     boolean_flag(parser, 'layer-norm', default=True)
     boolean_flag(parser, 'render', default=False)
-    parser.add_argument('--num-cpu', type=int, default=1)
+    parser.add_argument('--num-cpu', type=int, default=4)
     boolean_flag(parser, 'normalize-returns', default=False)
     boolean_flag(parser, 'normalize-observations', default=True)
     parser.add_argument('--seed', type=int, default=0)
@@ -148,7 +153,7 @@ def parse_args():
     parser.add_argument('--gamma', type=float, default=0.99)
     parser.add_argument('--reward-scale', type=float, default=1.)
     parser.add_argument('--clip-norm', type=float, default=None)
-    parser.add_argument('--nb-epochs', type=int, default=500)  # with default settings, perform 1M steps total
+    parser.add_argument('--nb-epochs', type=int, default=5)  # with default settings, default=500, perform 1M steps total. nb_epochs x nb_epoch_cycles x trainsteps = 5.000 and perform 10.000 steps
     parser.add_argument('--nb-epoch-cycles', type=int, default=20)
     parser.add_argument('--nb-train-steps', type=int, default=50)  # per epoch cycle and MPI worker
     parser.add_argument('--nb-eval-steps', type=int, default=100)  # per epoch cycle and MPI worker

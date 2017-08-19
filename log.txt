@@ -1,0 +1,8 @@
+Logging to /home/danielpc/notebooks/
+------------------------
+| batata    | 5        |
+| fanguinho | 2        |
+| hehe      | 6        |
+| lel       | 3        |
+| ops       | 3        |
+------------------------
