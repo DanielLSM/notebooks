@@ -2,7 +2,7 @@
 
 import Pyro4 as p4
 
-p4.config.HOST = '0.0.0.0'
+p4.config.HOST = '193.136.138.62'
 p4.config.COMMTIMEOUT = 1200.0 # 20 min timeout
 # p4.config.MAX_RETRIES = 2
 p4.config.THREADPOOL_SIZE = 1000
