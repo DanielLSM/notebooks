@@ -4,7 +4,7 @@ import random
 import time
 import Pyro4
 
-
+#helllo
 @Pyro4.expose
 class StockMarket(object):
     def __init__(self, marketname, symbols):
