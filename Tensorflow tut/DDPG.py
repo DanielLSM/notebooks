@@ -6,6 +6,7 @@ increased performance'''
 from canton.misc import get_session
 import tensorflow as tf
 from copy import copy
+from baselines.ddpg.memoryNIPS import Memory
 
 class Model(object):
     def __init__(self, name):
@@ -77,13 +78,15 @@ def get_target_updates(vars, target_vars, tau):
 class DDPG_agent(object):
     
     def __init__(self,observation_dims=1, action_dims=1,
-        alpha=0.9,gamma=0.99, noise=0.2,memory_size=1e6,batch_size=64,tau=1.,
+        alpha=0.9,gamma=0.99, noise=0.2,memory_size=1000000,batch_size=64,tau=1.,
         actor_alpha=1e-4,critic_alpha=1e-4):
-        
+        observation_shape = (None,observation_dims)
+        action_shape = (None,action_dims)
+
         #Inputs
-        self.observation = tf.placeholder(tf.float32, shape=(None,observation_dims), name='observation')
-        self.action = tf.placeholder(tf.float32, shape=(None,action_dims), name='action')        
-        self.observation_after = tf.placeholder(tf.float32, shape=(None,observation_dims), name='observation_after')
+        self.observation = tf.placeholder(tf.float32, shape=observation_shape, name='observation')
+        self.action = tf.placeholder(tf.float32, shape=action_shape, name='action')        
+        self.observation_after = tf.placeholder(tf.float32, shape=observation_shape, name='observation_after')
         self.reward = tf.placeholder(tf.float32, shape=(None, 1), name='rewards')        
         self.terminals1 = tf.placeholder(tf.float32, shape=(None, 1), name='terminals1')
         
@@ -95,7 +98,7 @@ class DDPG_agent(object):
         self.noise = noise
         self.gamma = gamma
         self.tau = tau
-        self.memory = memory_size
+        self.memory_replay = Memory(limit=memory_size,action_shape=(action_dims,),observation_shape=(observation_dims,)) 
         self.batch_size = batch_size
 
 
@@ -157,7 +160,8 @@ class DDPG_agent(object):
 
     def __len__(self):
         #return memory_replay_size and/or number of episodes
-        pass 
+        return self.memory_replay.nb_entries
+         
     def initialize(self):
         sess = get_session()
         sess.run(tf.global_variables_initializer())
